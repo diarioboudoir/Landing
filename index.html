@@ -10,30 +10,35 @@
   <meta property="og:image" content="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1777600839/Logo_hmxoos.png" />
   <link rel="icon" type="image/png" href="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1777600839/Logo_hmxoos.png" />
 
-  <!-- Tipografías: Montserrat + Allura desde Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
   <!-- META PIXEL: pega aquí tu código de Meta Pixel -->
   <!-- GOOGLE TAG: pega aquí tu Google Tag -->
   <!-- TIKTOK PIXEL: pega aquí tu TikTok Pixel -->
 
   <style>
     /*
-      TIPOGRAFÍAS LOCALES (descomenta si subes los archivos .ttf al servidor en /fonts/):
-      @font-face {
-        font-family: 'Montserrat';
-        src: url('fonts/Montserrat-Medium.ttf') format('truetype');
-        font-weight: 500; font-style: normal;
-      }
-      @font-face {
-        font-family: 'Allura';
-        src: url('fonts/Allura-Regular.ttf') format('truetype');
-        font-weight: 400; font-style: normal;
-      }
+      ╔══════════════════════════════════════════════════╗
+      ║  TIPOGRAFÍAS LOCALES                             ║
+      ║  Sube la carpeta /fonts/ junto con index.html   ║
+      ║  fonts/Montserrat-Medium.ttf                    ║
+      ║  fonts/Allura-Regular.ttf                       ║
+      ╚══════════════════════════════════════════════════╝
     */
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('fonts/Montserrat-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Allura';
+      src: url('fonts/Allura-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
 
+    /* ── VARIABLES ── */
     :root {
       --deep-plum:   #1B0E2A;
       --mid-plum:    #2D1A44;
@@ -55,7 +60,7 @@
       background-color: var(--deep-plum);
       color: var(--peach-light);
       font-family: var(--font-body);
-      font-weight: 300;
+      font-weight: 500;
       overflow-x: hidden;
     }
 
@@ -68,24 +73,28 @@
       pointer-events: none; z-index: 0;
     }
 
-    /* ── NAV ── */
+    /* ════════════════════════════════════
+       NAV
+    ════════════════════════════════════ */
     nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 100; padding: 16px 40px;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 40px;
       display: flex; align-items: center; justify-content: space-between;
-      background: linear-gradient(to bottom, rgba(27,14,42,0.96) 0%, transparent 100%);
-      backdrop-filter: blur(2px);
+      background: linear-gradient(to bottom, rgba(27,14,42,0.97) 0%, transparent 100%);
+      backdrop-filter: blur(3px);
     }
     .nav-logo img { height: 52px; width: auto; }
     .nav-links { display: flex; gap: 28px; list-style: none; }
     .nav-links a {
       font-family: var(--font-display);
-      font-size: 1.15rem; color: var(--peach);
+      font-size: 1.2rem; color: var(--peach);
       text-decoration: none; transition: color 0.3s;
     }
     .nav-links a:hover { color: var(--white); }
 
-    /* ── HERO ── */
+    /* ════════════════════════════════════
+       HERO — logo izquierda | headline derecha
+    ════════════════════════════════════ */
     #hero {
       position: relative; min-height: 100vh;
       display: flex; align-items: center;
@@ -100,83 +109,83 @@
     .hero-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(to bottom,
-        rgba(27,14,42,0.22) 0%,
-        rgba(27,14,42,0.05) 40%,
+        rgba(27,14,42,0.18) 0%,
+        rgba(27,14,42,0.04) 40%,
         rgba(27,14,42,0.65) 80%,
         var(--deep-plum) 100%);
     }
-
-    /* Hero layout: logo izquierda | texto derecha */
     .hero-inner {
       position: relative; z-index: 2;
-      width: 100%; max-width: 1100px;
-      margin: 0 auto; padding: 0 40px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 40px;
+      width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 40px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 40px;
     }
     .hero-logo-side {
       display: flex; align-items: center; justify-content: center;
+      animation: fadeUp 0.9s ease both; animation-delay: 0.1s;
     }
     .hero-logo-side img {
-      width: min(340px, 90%); height: auto;
-      filter: drop-shadow(0 0 40px rgba(242,198,176,0.2));
+      width: min(320px, 88%); height: auto;
+      filter: drop-shadow(0 0 40px rgba(242,198,176,0.22));
     }
-    .hero-text-side { text-align: left; }
+    .hero-text-side {
+      text-align: left;
+      animation: fadeUp 0.9s ease both; animation-delay: 0.32s;
+    }
     .hero-text-side h1 {
-      font-family: var(--font-body); font-weight: 300;
-      font-size: clamp(1.6rem, 4vw, 3rem);
-      line-height: 1.25; color: var(--cream);
-      letter-spacing: 0.06em; margin-bottom: 4px;
+      font-family: var(--font-body); font-weight: 500;
+      font-size: clamp(1.5rem, 3.6vw, 2.8rem);
+      line-height: 1.28; color: var(--cream);
+      letter-spacing: 0.06em; margin-bottom: 2px;
     }
     .hero-text-side h1 em {
       font-family: var(--font-display);
-      font-size: 1.6em; color: var(--peach);
+      font-size: 1.65em; color: var(--peach);
       font-style: normal; display: block; line-height: 1.05;
     }
     .hero-subtitle {
-      font-family: var(--font-body); font-weight: 300; font-style: italic;
-      font-size: clamp(0.85rem, 1.8vw, 1rem);
-      color: var(--text-muted); margin-top: 16px;
-      letter-spacing: 0.08em;
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--text-muted); margin-top: 18px;
+      letter-spacing: 0.03em;
     }
 
-    /* ── CTA BUTTONS ── */
+    /* ════════════════════════════════════
+       BOTONES — diseño unificado con shimmer
+    ════════════════════════════════════ */
     .cta-btn {
       display: inline-block;
       background: var(--peach); color: var(--deep-plum);
       font-family: var(--font-body); font-weight: 500;
       font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
-      text-decoration: none; padding: 16px 44px; border-radius: 2px;
-      transition: all 0.3s ease; position: relative; overflow: hidden;
+      text-decoration: none; padding: 15px 44px;
+      border-radius: 4px;
+      position: relative; overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer; border: none;
     }
-    .cta-btn::after { content:''; position:absolute; inset:0; background:var(--white); opacity:0; transition:opacity 0.3s; }
-    .cta-btn:hover::after { opacity: 0.12; }
-    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(242,198,176,0.28); }
-
-    .cta-btn-outline {
-      display: inline-block;
-      background: transparent; color: var(--peach);
-      font-family: var(--font-body); font-weight: 500;
-      font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase;
-      text-decoration: none; padding: 16px 48px;
-      border: 1px solid rgba(242,198,176,0.5); border-radius: 2px;
-      transition: all 0.3s ease;
+    .cta-btn::before {
+      content: '';
+      position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
+      transition: left 0.45s ease;
     }
-    .cta-btn-outline:hover {
-      background: var(--peach); color: var(--deep-plum);
-      transform: translateY(-2px); box-shadow: 0 10px 36px rgba(242,198,176,0.22);
+    .cta-btn:hover::before { left: 150%; }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(242,198,176,0.32);
     }
 
-    /* ── SECTIONS SHARED ── */
+    /* ════════════════════════════════════
+       SHARED
+    ════════════════════════════════════ */
     section { position: relative; z-index: 1; padding: 90px 24px; }
     .section-title {
       font-family: var(--font-display);
       font-size: clamp(2.2rem, 5vw, 3.4rem);
-      color: var(--peach); text-align: right; margin-bottom: 50px; line-height: 1;
+      color: var(--peach); text-align: right;
+      margin-bottom: 50px; line-height: 1;
     }
-    .section-title.left   { text-align: left; }
     .section-title.center { text-align: center; }
     .container { max-width: 1100px; margin: 0 auto; }
     .divider {
@@ -185,7 +194,22 @@
       margin: 0 auto 50px;
     }
 
-    /* ── PORTAFOLIO ── */
+    /* ════════════════════════════════════
+       PROBLEMA (debajo del hero)
+    ════════════════════════════════════ */
+    #problema { background: var(--deep-plum); padding-top: 72px; padding-bottom: 72px; }
+    .problema-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+    .problema-inner p {
+      font-family: var(--font-body); font-weight: 500;
+      font-size: clamp(0.92rem, 1.75vw, 1.1rem);
+      line-height: 2.05; color: var(--peach-light);
+    }
+    .problema-inner p strong { color: var(--peach); }
+    .problema-parrafo { margin-bottom: 24px; }
+
+    /* ════════════════════════════════════
+       PORTAFOLIO
+    ════════════════════════════════════ */
     #portafolio {
       background: linear-gradient(to bottom, var(--deep-plum) 0%, rgba(45,26,68,0.3) 50%, var(--deep-plum) 100%);
     }
@@ -201,22 +225,15 @@
     .portfolio-grid .item.tall img { height: 480px; }
     .portfolio-grid .item:not(.tall) img { height: 234px; }
 
-    /* ── PROBLEMA ── */
-    #problema { background: var(--deep-plum); }
-    .problema-inner { max-width: 720px; margin: 0 auto; text-align: center; }
-    .problema-inner p {
-      font-family: var(--font-body); font-weight: 300; font-style: italic;
-      font-size: clamp(1rem, 2vw, 1.22rem); line-height: 1.95; color: var(--peach-light);
-    }
-    .problema-inner p em { color: var(--peach); font-style: normal; font-weight: 500; }
-
-    /* ── CTA MID-PAGE ── */
-    .section-cta-wrap {
+    /* CTA bloque centrado */
+    .section-cta-block {
       position: relative; z-index: 1;
-      text-align: center; padding: 0 24px 80px;
+      text-align: center; padding: 14px 24px 72px;
     }
 
-    /* ── PROCESO (2 pasos + 1 centrado) ── */
+    /* ════════════════════════════════════
+       PROCESO
+    ════════════════════════════════════ */
     #proceso {
       background: linear-gradient(to bottom, var(--deep-plum), rgba(45,26,68,0.45), var(--deep-plum));
       padding-top: 28px;
@@ -224,25 +241,30 @@
     .proceso-steps { display: grid; grid-template-columns: repeat(2,1fr); gap: 36px; margin-top: 20px; }
     .proceso-step {
       text-align: center; padding: 40px 28px;
-      border: 1px solid rgba(242,198,176,0.13); border-radius: 4px;
-      background: rgba(62,37,88,0.16); transition: border-color 0.3s, background 0.3s;
+      border: 1px solid rgba(242,198,176,0.13); border-radius: 6px;
+      background: rgba(62,37,88,0.16);
+      transition: border-color 0.3s, background 0.3s;
     }
     .proceso-step:hover { border-color: rgba(242,198,176,0.36); background: rgba(62,37,88,0.36); }
-    /* Títulos en Allura */
     .step-title {
       font-family: var(--font-display);
-      font-size: 2rem; color: var(--peach);
+      font-size: 2.1rem; color: var(--peach);
       margin-bottom: 14px; line-height: 1.1;
     }
-    .step-desc { font-family: var(--font-body); font-weight: 300; font-size: 0.88rem; color: var(--text-muted); line-height: 1.78; }
+    .step-desc {
+      font-family: var(--font-body); font-weight: 500;
+      font-size: 0.87rem; color: var(--text-muted); line-height: 1.82;
+    }
     .proceso-step-solo { margin-top: 36px; }
     .proceso-step-solo .proceso-step { max-width: 560px; margin: 0 auto; }
 
-    /* ── TESTIMONIOS ── */
+    /* ════════════════════════════════════
+       TESTIMONIOS
+    ════════════════════════════════════ */
     #testimonios { background: linear-gradient(135deg, rgba(45,26,68,0.36) 0%, var(--deep-plum) 100%); }
     .testimonios-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
     .testimonio-card {
-      border: 1px solid rgba(242,198,176,0.13); border-radius: 4px;
+      border: 1px solid rgba(242,198,176,0.13); border-radius: 6px;
       padding: 32px 28px; background: rgba(62,37,88,0.13); position: relative;
     }
     .testimonio-card::before {
@@ -251,17 +273,19 @@
       position: absolute; top: -8px; left: 20px; line-height: 1;
     }
     .testimonio-text {
-      font-family: var(--font-body); font-weight: 300; font-style: italic;
-      font-size: 0.92rem; line-height: 1.75; color: var(--peach-light); margin-bottom: 20px;
+      font-family: var(--font-body); font-weight: 500; font-style: italic;
+      font-size: 0.9rem; line-height: 1.78; color: var(--peach-light); margin-bottom: 20px;
     }
     .testimonio-author {
       font-family: var(--font-body); font-weight: 500;
-      font-size: 0.7rem; letter-spacing: 0.12em;
+      font-size: 0.68rem; letter-spacing: 0.12em;
       text-transform: uppercase; color: var(--text-muted);
     }
     .testimonios-cta-wrap { text-align: center; margin-top: 52px; }
 
-    /* ── CONÓCEME ── */
+    /* ════════════════════════════════════
+       CONÓCEME
+    ════════════════════════════════════ */
     #conoceme { background: linear-gradient(135deg, rgba(45,26,68,0.42) 0%, var(--deep-plum) 100%); }
     .conoceme-inner { display: grid; grid-template-columns: 280px 1fr; gap: 60px; align-items: center; }
     .conoceme-photo { position: relative; }
@@ -276,71 +300,70 @@
       border: 1px solid rgba(242,198,176,0.11);
     }
     .conoceme-text p {
-      font-family: var(--font-body); font-weight: 300;
-      font-size: clamp(0.9rem, 1.55vw, 1.08rem);
-      line-height: 1.88; color: var(--peach-light); text-align: center;
-    }
-    .conoceme-text p em { color: var(--peach); font-style: normal; font-weight: 500; }
-    .conoceme-credential {
-      display: inline-block; margin-top: 24px;
       font-family: var(--font-body); font-weight: 500;
-      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+      font-size: clamp(0.9rem, 1.55vw, 1.05rem);
+      line-height: 1.92; color: var(--peach-light); text-align: center;
+    }
+    .conoceme-quote {
+      display: block; margin-top: 26px;
+      font-family: var(--font-display); font-size: 1.7rem;
+      color: var(--peach); text-align: center; line-height: 1.35;
+    }
+    .conoceme-credential {
+      display: inline-block; margin-top: 20px;
+      font-family: var(--font-body); font-weight: 500;
+      font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--text-muted);
-      border-top: 1px solid rgba(242,198,176,0.16); padding-top: 16px;
+      border-top: 1px solid rgba(242,198,176,0.16); padding-top: 14px;
       width: 100%; text-align: center;
     }
 
-    /* ── PIEDRAS PRECIOSAS — FLIP CARDS CON IMAGEN CLOUDINARY ── */
+    /* ════════════════════════════════════
+       PIEDRAS PRECIOSAS — FLIP CARDS
+    ════════════════════════════════════ */
     #paquetes { background: var(--deep-plum); }
     .packages-grid {
       display: grid; grid-template-columns: repeat(3,1fr);
       gap: 28px; align-items: start;
     }
-    .flip-card { height: 490px; perspective: 1200px; cursor: pointer; }
+    .flip-card { height: 500px; perspective: 1200px; cursor: pointer; }
     .flip-card-inner {
       position: relative; width: 100%; height: 100%;
-      transition: transform 0.78s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transition: transform 0.82s cubic-bezier(0.4, 0.2, 0.2, 1);
       transform-style: preserve-3d;
     }
     .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
 
     .flip-front, .flip-back {
-      position: absolute; inset: 0; border-radius: 6px;
+      position: absolute; inset: 0; border-radius: 8px;
       backface-visibility: hidden; -webkit-backface-visibility: hidden;
       overflow: hidden;
     }
-
-    /* FRONT: imagen de portada desde Cloudinary */
+    /* FRONT */
     .flip-front {
       display: flex; flex-direction: column;
       align-items: center; justify-content: flex-end;
       padding-bottom: 28px;
-      border: 1px solid rgba(242,198,176,0.18);
+      border: 1px solid rgba(242,198,176,0.2);
       background: var(--mid-plum);
     }
-    .flip-front-img {
-      position: absolute; inset: 0;
-    }
+    .flip-front-img { position: absolute; inset: 0; }
     .flip-front-img img {
       width: 100%; height: 100%;
-      object-fit: cover; object-position: center;
-      display: block;
+      object-fit: cover; object-position: center; display: block;
       transition: transform 0.4s ease;
     }
     .flip-card:hover .flip-front-img img { transform: scale(1.04); }
-    /* Degradado para leer el nombre sobre la foto */
     .flip-front-img::after {
-      content: '';
-      position: absolute; bottom: 0; left: 0; right: 0; height: 55%;
-      background: linear-gradient(to top, rgba(27,14,42,0.9) 0%, transparent 100%);
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 55%;
+      background: linear-gradient(to top, rgba(27,14,42,0.92) 0%, transparent 100%);
     }
     .card-front-name {
       position: relative; z-index: 2;
-      font-family: var(--font-display); font-size: 2.3rem;
+      font-family: var(--font-display); font-size: 2.5rem;
       color: var(--peach); text-align: center;
-      text-shadow: 0 2px 16px rgba(27,14,42,0.9);
+      text-shadow: 0 2px 18px rgba(27,14,42,0.95);
     }
-
     /* BACK */
     .flip-back {
       background: rgba(45,26,68,0.97);
@@ -350,28 +373,46 @@
       padding: 36px 28px 32px;
     }
     .flip-back::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0;
-      height: 2px;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
       background: linear-gradient(to right, transparent, var(--peach), transparent);
     }
     .card-back-name {
-      font-family: var(--font-display); font-size: 2.1rem;
-      color: var(--peach); margin-bottom: 28px; text-align: center;
+      font-family: var(--font-display); font-size: 2.2rem;
+      color: var(--peach); margin-bottom: 26px; text-align: center;
     }
     .package-features { list-style: none; flex: 1; }
     .package-features li {
-      font-family: var(--font-body); font-weight: 300; font-size: 0.88rem;
+      font-family: var(--font-body); font-weight: 500; font-size: 0.86rem;
       color: var(--peach-light); padding: 7px 0;
       border-bottom: 1px solid rgba(242,198,176,0.09);
       display: flex; align-items: center; gap: 10px;
     }
-    .package-features li::before { content:'◆'; color:var(--peach-dark); font-size:0.44rem; flex-shrink:0; }
+    .package-features li::before { content: '◆'; color: var(--peach-dark); font-size: 0.44rem; flex-shrink: 0; }
 
-    .paquetes-cta-wrap { text-align: center; margin-top: 60px; }
+    /* Bloque de cierre debajo de las cards */
+    .paquetes-closing {
+      margin-top: 72px;
+      text-align: center;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .paquetes-closing-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      color: var(--peach); margin-bottom: 22px; line-height: 1.15;
+    }
+    .paquetes-closing p {
+      font-family: var(--font-body); font-weight: 500;
+      font-size: clamp(0.88rem, 1.6vw, 1rem);
+      line-height: 1.95; color: var(--peach-light);
+      margin-bottom: 42px;
+    }
 
-    /* ── FOOTER — fondo durazno ── */
+    /* ════════════════════════════════════
+       FOOTER — fondo #F2C6B0
+    ════════════════════════════════════ */
     footer { position: relative; overflow: hidden; }
-    /* Sutileza del durazno que sostiene la elegancia del morado */
     .footer-strip {
       height: 3px;
       background: linear-gradient(to right, transparent 0%, var(--peach) 20%, var(--peach) 80%, transparent 100%);
@@ -383,7 +424,7 @@
       align-items: center; gap: 16px;
     }
     .footer-title {
-      font-family: var(--font-display); font-size: 2.6rem;
+      font-family: var(--font-display); font-size: 2.8rem;
       color: var(--deep-plum); line-height: 1;
     }
     .footer-socials { display: flex; gap: 28px; align-items: center; }
@@ -393,33 +434,35 @@
     }
     .footer-socials a:hover { opacity: 1; }
     .footer-legal {
-      font-family: var(--font-body); font-size: 0.68rem;
-      color: rgba(27,14,42,0.45); letter-spacing: 0.06em;
+      font-family: var(--font-body); font-size: 0.66rem;
+      color: rgba(27,14,42,0.42); letter-spacing: 0.06em;
     }
 
-    /* ── ANIMATIONS ── */
+    /* ════════════════════════════════════
+       ANIMATIONS
+    ════════════════════════════════════ */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(26px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .hero-logo-side { animation: fadeUp 0.9s ease both; animation-delay: 0.1s; }
-    .hero-text-side { animation: fadeUp 0.9s ease both; animation-delay: 0.3s; }
 
-    /* ── MOBILE ── */
+    /* ════════════════════════════════════
+       MOBILE
+    ════════════════════════════════════ */
     @media (max-width: 768px) {
       nav { padding: 12px 18px; }
       .nav-links { display: none; }
       #hero { padding: 90px 0 50px; }
       .hero-inner { grid-template-columns: 1fr; padding: 0 20px; text-align: center; gap: 24px; }
       .hero-text-side { text-align: center; }
-      .hero-logo-side img { width: min(200px, 70%); }
+      .hero-logo-side img { width: min(200px, 68%); }
       section { padding: 58px 18px; }
       .portfolio-grid { grid-template-columns: 1fr 1fr; gap: 4px; }
       .portfolio-grid .item.tall img { height: 280px; }
       .portfolio-grid .item:not(.tall) img { height: 140px; }
       .proceso-steps { grid-template-columns: 1fr; gap: 18px; }
       .packages-grid { grid-template-columns: 1fr; gap: 56px; }
-      .flip-card { height: 440px; }
+      .flip-card { height: 460px; }
       .testimonios-grid { grid-template-columns: 1fr; gap: 18px; }
       .conoceme-inner { grid-template-columns: 1fr; gap: 30px; text-align: center; }
       .conoceme-photo { max-width: 190px; margin: 0 auto; }
@@ -428,7 +471,7 @@
 </head>
 <body>
 
-<!-- ── NAV ── -->
+<!-- ════════════ NAV ════════════ -->
 <nav>
   <a href="#hero" class="nav-logo">
     <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1777600839/Logo_hmxoos.png" alt="Diario Boudoir" />
@@ -442,19 +485,19 @@
   </ul>
 </nav>
 
-<!-- ── HERO: logo izquierda + texto derecha ── -->
+<!-- ════════════ HERO ════════════ -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-inner">
 
-    <!-- Logotipo lado izquierdo -->
+    <!-- Logotipo — lado izquierdo -->
     <div class="hero-logo-side">
       <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1777600839/Logo_hmxoos.png"
            alt="Diario Boudoir" />
     </div>
 
-    <!-- Headline + subtítulo lado derecho -->
+    <!-- Headline — lado derecho -->
     <div class="hero-text-side">
       <h1>
         No viniste a encajar,
@@ -466,69 +509,76 @@
   </div>
 </section>
 
-<!-- ── PORTAFOLIO ── -->
-<section id="portafolio">
-  <div class="container">
-    <h2 class="section-title">Portafolio</h2>
-    <div class="portfolio-grid">
-      <div class="item tall">
-        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131047/Pia-6396_oo3jgu.jpg"
-             alt="Sesión boudoir" loading="lazy" />
-      </div>
-      <div class="item">
-        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131051/ChioMD_redes-1373_inabje.jpg"
-             alt="Retrato femenino" loading="lazy" />
-      </div>
-      <div class="item">
-        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131042/Viry_Mu%C3%B1oz-6_rxuzmh.jpg"
-             alt="Sesión de retratos" loading="lazy" />
-      </div>
-      <div class="item">
-        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131038/Miranda_h7yqn8.jpg"
-             alt="Fotografía artística" loading="lazy" />
-      </div>
-      <div class="item">
-        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131041/Almita_m-5037_wslhr.jpg"
-             alt="Retrato de mujer" loading="lazy" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── PROBLEMA ── -->
+<!-- ════════════ PROBLEMA ════════════ -->
 <section id="problema">
   <div class="container">
     <div class="problema-inner">
       <div class="divider"></div>
-      <p>
-        ¿Alguna vez te has sentido <em>desconectada de tu propio cuerpo</em>,
-        cansada de mirarte al espejo sin reconocerte?
-        Mujeres que llevan años cargando la inseguridad,
-        el juicio externo y la falta de amor propio —
-        como si su historia no mereciera ser fotografiada.
-        <br /><br />
-        Yo estuve ahí. Y sé que <em>sí mereces</em> verte hermosa,
-        poderosa y completamente tuya.
+      <p class="problema-parrafo">
+        ¿Alguna vez has evitado una foto porque no te gustas como te ves?<br />
+        ¿Te has desconectado de tu propio reflejo?
       </p>
+      <p class="problema-parrafo">
+        Muchas mujeres llegan a sus sesiones inseguras,<br />
+        pero con ganas de mirarse diferente.
+      </p>
+      <p class="problema-parrafo">
+        Y cuando ven sus resultados… se asombran. Se emocionan.<br />
+        Se reconcilian consigo mismas.
+      </p>
+      <p><strong>Eso es lo que quiero para ti.</strong></p>
       <div class="divider" style="margin-top:50px;"></div>
     </div>
   </div>
 </section>
 
-<!-- ── CTA antes de "Así trabajamos" ── -->
-<div class="section-cta-wrap">
+<!-- ════════════ PORTAFOLIO ════════════ -->
+<section id="portafolio">
+  <div class="container">
+    <h2 class="section-title">Portafolio</h2>
+    <div class="portfolio-grid">
+
+      <!-- Imagen tall izquierda -->
+      <div class="item tall">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131047/Pia-6396_oo3jgu.jpg"
+             alt="Sesión boudoir Pía" loading="lazy" />
+      </div>
+
+      <!-- 4 imágenes columna derecha -->
+      <div class="item">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131051/ChioMD_redes-1373_inabje.jpg"
+             alt="Retrato femenino ChioMD" loading="lazy" />
+      </div>
+      <div class="item">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131042/Viry_Mu%C3%B1oz-6_rxuzmh.jpg"
+             alt="Sesión Viry Muñoz" loading="lazy" />
+      </div>
+      <div class="item">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131038/Miranda_h7yqn8.jpg"
+             alt="Fotografía artística Miranda" loading="lazy" />
+      </div>
+      <div class="item">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131041/Almita_m-5037_wslhr.jpg"
+             alt="Retrato Almita" loading="lazy" />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ CTA — "Sí, quiero mi sesión" ════ -->
+<div class="section-cta-block">
   <a href="https://wa.me/+525519129866?text=Hola%20Daniela%2C%20acabo%20de%20ver%20tu%20p%C3%A1gina%20y%20estoy%20decidida%20a%20hacerme%20mi%20sesi%C3%B3n%F0%9F%94%A5%0A%0A%C2%A1Quiero%20detalles!%20%C2%BFCu%C3%A1ndo%20podemos%20hacer%20videollamada%3F"
      class="cta-btn" target="_blank" rel="noopener">
-    Quiero mi sesión
+    Sí, quiero mi sesión
   </a>
 </div>
 
-<!-- ── PROCESO (título alineado a la derecha, títulos de pasos en Allura) ── -->
+<!-- ════════════ ASÍ TRABAJAMOS ════════════ -->
 <section id="proceso">
   <div class="container">
     <h2 class="section-title">Así trabajamos</h2>
 
-    <!-- 2 pasos en columnas -->
     <div class="proceso-steps">
       <div class="proceso-step">
         <div class="step-title">Videollamada</div>
@@ -536,11 +586,10 @@
       </div>
       <div class="proceso-step">
         <div class="step-title">Tu experiencia</div>
-        <p class="step-desc">El momento perfecto no llega, lo haremos juntas. Sin saber nada de fotografía, exploraremos una versión más amorosa de ti.</p>
+        <p class="step-desc">El momento perfecto no llega, lo haremos juntas. Aunque nunca hayas posado antes, te guiaré para que descubras otra arista de esa belleza que no has mirado.</p>
       </div>
     </div>
 
-    <!-- 3er paso centrado solo -->
     <div class="proceso-step-solo">
       <div class="proceso-step">
         <div class="step-title">Tu historia, tus fotos</div>
@@ -551,7 +600,7 @@
   </div>
 </section>
 
-<!-- ── TESTIMONIOS (antes de Conóceme) ── -->
+<!-- ════════════ TESTIMONIOS ════════════ -->
 <section id="testimonios">
   <div class="container">
     <h2 class="section-title center">Lo que dicen ellas</h2>
@@ -578,7 +627,8 @@
         <span class="testimonio-author">— Viridiana M.</span>
       </div>
     </div>
-    <!-- Botón "¡Estoy lista!" debajo de testimonios -->
+
+    <!-- Botón ¡Estoy lista! debajo de testimonios -->
     <div class="testimonios-cta-wrap">
       <a href="https://wa.me/+525519129866?text=Hola%20Daniela%2C%20acabo%20de%20ver%20tu%20p%C3%A1gina%20y%20estoy%20decidida%20a%20hacerme%20mi%20sesi%C3%B3n%F0%9F%94%A5%0A%0A%C2%A1Quiero%20detalles!%20%C2%BFCu%C3%A1ndo%20podemos%20hacer%20videollamada%3F"
          class="cta-btn" target="_blank" rel="noopener">
@@ -588,7 +638,7 @@
   </div>
 </section>
 
-<!-- ── CONÓCEME (después de Testimonios) ── -->
+<!-- ════════════ CONÓCEME ════════════ -->
 <section id="conoceme">
   <div class="container">
     <h2 class="section-title">Conóceme</h2>
@@ -605,18 +655,20 @@
           se me empezó a llenar el corazón — y es lo que quiero seguir replicando.
           <br /><br />
           No necesitas lucir de cierta forma ni someterte a ningún estándar externo.
-          Vivir la sesión y elegir ha sido la decisión propia, la libertad que te
-          devuelve el poder de la <em>reina que ya eres</em>.
         </p>
+        <span class="conoceme-quote">
+          Elegirte desde la autoaceptación,<br />
+          es el paso más valiente hacia la libertad
+        </span>
         <span class="conoceme-credential">
-          Lic. en Diseño Gráfico · Fotógrafa desde hace +10 años
+          Fotógrafa desde hace +10 años
         </span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── PIEDRAS PRECIOSAS — flip cards con imágenes Cloudinary ── -->
+<!-- ════════════ PIEDRAS PRECIOSAS ════════════ -->
 <section id="paquetes">
   <div class="container">
     <h2 class="section-title">Piedras preciosas</h2>
@@ -628,7 +680,7 @@
           <div class="flip-front">
             <div class="flip-front-img">
               <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778215514/opalo3_ivjdai.png"
-                   alt="Ópalo de fuego" />
+                   alt="Ópalo de fuego" loading="lazy" />
             </div>
             <div class="card-front-name">Ópalo de fuego</div>
           </div>
@@ -651,7 +703,7 @@
           <div class="flip-front">
             <div class="flip-front-img">
               <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778215510/Turquesa3_bbm6ge.png"
-                   alt="Jade" />
+                   alt="Jade" loading="lazy" />
             </div>
             <div class="card-front-name">Jade</div>
           </div>
@@ -675,7 +727,7 @@
           <div class="flip-front">
             <div class="flip-front-img">
               <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778215506/jade3_m1wae8.png"
-                   alt="Turquesa" />
+                   alt="Turquesa" loading="lazy" />
             </div>
             <div class="card-front-name">Turquesa</div>
           </div>
@@ -696,10 +748,16 @@
 
     </div>
 
-    <!-- CTA final de paquetes -->
-    <div class="paquetes-cta-wrap" id="reserva">
+    <!-- Cierre + CTA final de sección -->
+    <div class="paquetes-closing" id="reserva">
+      <div class="paquetes-closing-title">Un paso más ligero hacia amarte</div>
+      <p>
+        En esta sesión no solo te fotografío. Te ayudo a verte.<br />
+        A estar presente en tu propia historia.<br />
+        A descubrir —quizás por primera vez— dónde estás parada y cuánto vales.
+      </p>
       <a href="https://wa.me/+525519129866?text=Hola%20Daniela%2C%20acabo%20de%20ver%20tu%20p%C3%A1gina%20y%20estoy%20decidida%20a%20hacerme%20mi%20sesi%C3%B3n%F0%9F%94%A5%0A%0A%C2%A1Quiero%20detalles!%20%C2%BFCu%C3%A1ndo%20podemos%20hacer%20videollamada%3F"
-         class="cta-btn-outline" target="_blank" rel="noopener">
+         class="cta-btn" target="_blank" rel="noopener">
         ¡Quiero reservar!
       </a>
     </div>
@@ -707,17 +765,22 @@
   </div>
 </section>
 
-<!-- ── FOOTER — fondo durazno #F2C6B0, textos morado oscuro ── -->
+<!-- ════════════ FOOTER ════════════ -->
 <footer>
   <div class="footer-strip"></div>
   <div class="footer-body">
     <div class="footer-title">Reserva</div>
     <div class="footer-socials">
-      <a href="https://www.instagram.com/diarioboudoir/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      <a href="https://www.instagram.com/diarioboudoir/" target="_blank" rel="noopener" aria-label="Instagram Diario Boudoir">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
       </a>
-      <a href="https://wa.me/+525519129866" target="_blank" rel="noopener" aria-label="WhatsApp">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      <a href="https://wa.me/+525519129866?text=Hola%20Daniela%2C%20acabo%20de%20ver%20tu%20p%C3%A1gina%20y%20estoy%20decidida%20a%20hacerme%20mi%20sesi%C3%B3n%F0%9F%94%A5%0A%0A%C2%A1Quiero%20detalles!%20%C2%BFCu%C3%A1ndo%20podemos%20hacer%20videollamada%3F"
+         target="_blank" rel="noopener" aria-label="WhatsApp Diario Boudoir">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
       </a>
     </div>
     <p class="footer-legal">© 2025 Diario Boudoir · Todos los derechos reservados · Aviso de privacidad</p>
