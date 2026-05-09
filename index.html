@@ -4,31 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diario Boudoir | Fotografía femenina · Ciudad de México</title>
-  <meta name="description" content="No viniste a encajar, viniste a ser tú. Sesiones de fotografía boudoir y retratos para mujeres que quieren reconocerse, amarse y celebrarse." />
+  <meta name="description" content="No viniste a encajar, viniste a ser tú. Sesiones boudoir y retratos para mujeres que quieren reconocerse, amarse y celebrarse." />
   <meta property="og:title" content="Diario Boudoir — Fotografía que te regresa a ti" />
-  <meta property="og:description" content="No viniste a encajar, viniste a ser tú. Sesiones boudoir y retratos para mujeres." />
-  <meta property="og:image" content="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1777600839/Logo_hmxoos.png" />
+  <meta property="og:description" content="Sesiones boudoir y retratos para mujeres en CDMX." />
+  <meta property="og:image" content="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1777600836/Logo_tfmqxk.png" />
 
-  <!-- FAVICON (exclusivo para pestaña del navegador) -->
+  <!-- FAVICON exclusivo del navegador -->
   <link rel="icon" type="image/png" href="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1777600839/Logo_hmxoos.png" />
 
   <!-- META PIXEL: pega aquí tu código -->
-  <!-- GOOGLE TAG: pega aquí tu código -->
-  <!-- TIKTOK PIXEL: pega aquí tu código -->
+  <!-- GOOGLE TAG: pega aquí tu Google Tag -->
+  <!-- TIKTOK PIXEL: pega aquí tu TikTok Pixel -->
 
   <style>
     /*
-      ╔══════════════════════════════════════════════════╗
-      ║  TIPOGRAFÍAS LOCALES                             ║
-      ║  Coloca junto a index.html la carpeta /fonts/   ║
-      ║  fonts/Montserrat-Medium.ttf                    ║
-      ║  fonts/Allura-Regular.ttf                       ║
-      ╚══════════════════════════════════════════════════╝
+      ╔══════════════════════════════════════════════════════╗
+      ║  TIPOGRAFÍAS LOCALES                                 ║
+      ║  Coloca junto a index.html la carpeta /fonts/ con:  ║
+      ║    fonts/Montserrat-Thin.ttf                        ║
+      ║    fonts/Allura-Regular.ttf                         ║
+      ╚══════════════════════════════════════════════════════╝
     */
     @font-face {
       font-family: 'Montserrat';
       src: url('fonts/Montserrat-Medium.ttf') format('truetype');
-      font-weight: 300;
+      font-weight: 500;
       font-style: normal;
       font-display: swap;
     }
@@ -40,6 +40,7 @@
       font-display: swap;
     }
 
+    /* ── VARIABLES ── */
     :root {
       --deep-plum:   #1B0E2A;
       --mid-plum:    #2D1A44;
@@ -49,10 +50,10 @@
       --peach-dark:  #D4906A;
       --cream:       #FAF0EA;
       --white:       #FFFFFF;
-      --text-muted:  rgba(242,198,176,0.52);
-      --wa:          https://api.whatsapp.com/send?phone=+525519129866&text=Hola%20Daniela%2C%20acabo%20de%20ver%20tu%20p%C3%A1gina%20y%20estoy%20decidida%20a%20hacerme%20mi%20sesi%C3%B3n%F0%9F%94%A5%0A%C2%BFCu%C3%A1les%20son%20los%20m%C3%A9todos%20de%20pago%3F;
+      --text-muted:  rgba(242,198,176,0.55);
       --font-display: 'Allura', cursive;
       --font-body:    'Montserrat', sans-serif;
+      --wa: https://api.whatsapp.com/send?phone=+525519129866&text=Hola%20Daniela%2C%20acabo%20de%20ver%20tu%20p%C3%A1gina%20y%20estoy%20decidida%20a%20hacerme%20mi%20sesi%C3%B3n%F0%9F%94%A5%0A%C2%BFCu%C3%A1les%20son%20los%20m%C3%A9todos%20de%20pago%3F;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -62,7 +63,7 @@
       background-color: var(--deep-plum);
       color: var(--peach-light);
       font-family: var(--font-body);
-      font-weight: 300;
+      font-weight: 200;         /* thin */
       overflow-x: hidden;
     }
 
@@ -70,17 +71,17 @@
       content: '';
       position: fixed; inset: 0;
       background-image:
-        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(62,37,88,0.38) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(62,37,88,0.4) 0%, transparent 60%),
         radial-gradient(ellipse 60% 80% at 80% 90%, rgba(212,144,106,0.07) 0%, transparent 50%);
       pointer-events: none; z-index: 0;
     }
 
-    /* ════════════════════════════
+    /* ════════════════════════════════════
        NAV
-    ════════════════════════════ */
+    ════════════════════════════════════ */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 16px 40px;
+      padding: 14px 40px;
       display: flex; align-items: center; justify-content: space-between;
       background: linear-gradient(to bottom, rgba(27,14,42,0.97) 0%, transparent 100%);
       backdrop-filter: blur(4px);
@@ -94,46 +95,68 @@
     }
     .nav-links a:hover { color: var(--white); }
 
-    /* ════════════════════════════
-       BOTONES — diseño unificado
-       Dos variantes:
-       .cta-btn-solid  → relleno durazno (Sí, quiero…)  (no usado en esta versión final)
-       .cta-btn-ghost  → fondo morado, contorno peach, shimmer al hover
-    ════════════════════════════ */
-    .cta-btn {
+    /* ════════════════════════════════════
+       BOTONES
+       — Peach sólido: "Agenda tu llamada", "Sí, quiero mi sesión" (antes)
+       — Outline morado / fill peach al hover: "¡Sí, quiero vivirlo!", "¡Estoy lista!", "¡Quiero reservar!"
+    ════════════════════════════════════ */
+
+    /* Botón peach sólido (hero area) */
+    .cta-solid {
       display: inline-block;
-      background: transparent;
-      color: var(--peach);
-      border: 1.5px solid var(--peach);
+      background: var(--peach); color: var(--deep-plum);
       font-family: var(--font-body); font-weight: 300;
-      font-size: 0.76rem; letter-spacing: 0.18em; text-transform: uppercase;
+      font-size: 0.73rem; letter-spacing: 0.18em; text-transform: uppercase;
+      text-decoration: none; padding: 14px 40px;
+      border-radius: 4px; border: none;
+      position: relative; overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .cta-solid::before {
+      content: '';
+      position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.45s;
+    }
+    .cta-solid:hover::before { left: 150%; }
+    .cta-solid:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(242,198,176,0.28); }
+
+    /* Botón outline morado → fill peach hover */
+    .cta-outline {
+      display: inline-block;
+      background: transparent; color: var(--peach);
+      font-family: var(--font-body); font-weight: 300;
+      font-size: 0.73rem; letter-spacing: 0.18em; text-transform: uppercase;
       text-decoration: none; padding: 14px 40px;
       border-radius: 4px;
+      border: 1.5px solid var(--peach);
       position: relative; overflow: hidden;
-      transition: color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease, transform 0.3s ease;
+      transition: color 0.35s, transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
-      backdrop-filter: blur(0px);
+      isolation: isolate;
     }
-    /* shimmer */
-    .cta-btn::before {
+    .cta-outline::before {
       content: '';
-      position: absolute; top: 0; left: -120%; width: 60%; height: 100%;
-      background: linear-gradient(120deg, transparent 0%, rgba(242,198,176,0.28) 50%, transparent 100%);
-      transition: left 0.5s ease;
+      position: absolute; inset: 0;
+      background: var(--peach);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s ease;
+      z-index: -1;
+      border-radius: 2px;
     }
-    .cta-btn:hover::before { left: 160%; }
-    .cta-btn:hover {
-      background: rgba(242,198,176,0.14);
-      backdrop-filter: blur(8px);
-      color: var(--peach-light);
+    .cta-outline:hover::before { transform: scaleX(1); }
+    .cta-outline:hover {
+      color: var(--deep-plum);
       transform: translateY(-2px);
-      box-shadow: 0 0 28px rgba(242,198,176,0.22), 0 8px 28px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 36px rgba(242,198,176,0.25), 0 0 22px rgba(242,198,176,0.18);
+      filter: blur(0);
     }
 
-    /* ════════════════════════════
+    /* ════════════════════════════════════
        SHARED
-    ════════════════════════════ */
-    section { position: relative; z-index: 1; padding: 88px 24px; }
+    ════════════════════════════════════ */
+    section { position: relative; z-index: 1; padding: 90px 24px; }
     .section-title {
       font-family: var(--font-display);
       font-size: clamp(2.2rem, 5vw, 3.4rem);
@@ -143,15 +166,18 @@
     .section-title.center { text-align: center; }
     .container { max-width: 1100px; margin: 0 auto; }
     .divider {
-      width: 56px; height: 1px;
+      width: 60px; height: 1px;
       background: linear-gradient(to right, transparent, var(--peach-dark), transparent);
-      margin: 0 auto 48px;
+      margin: 0 auto 50px;
     }
-    .cta-center { text-align: center; padding: 10px 24px 68px; position: relative; z-index: 1; }
+    .section-cta-block {
+      position: relative; z-index: 1;
+      text-align: center; padding: 10px 24px 64px;
+    }
 
-    /* ════════════════════════════
+    /* ════════════════════════════════════
        HERO
-    ════════════════════════════ */
+    ════════════════════════════════════ */
     #hero {
       position: relative; min-height: 100vh;
       display: flex; align-items: center;
@@ -159,42 +185,41 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      /* PORTADA: archivo de portada v1747131047/Fondo_sr79qm.jpg */
-      background-image: url('https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131047/Fondo_sr79qm.jpg');
-      background-size: cover; background-position: center top;
-      filter: brightness(0.3);
+      background-image: url('https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778131047/Fondo_sr79qm.png');
+      background-size: cover; background-position: center center;
+      filter: brightness(0.32);
     }
     .hero-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(to bottom,
-        rgba(27,14,42,0.15) 0%, rgba(27,14,42,0.02) 40%,
-        rgba(27,14,42,0.6) 80%, var(--deep-plum) 100%);
+        rgba(27,14,42,0.15) 0%,
+        rgba(27,14,42,0.04) 38%,
+        rgba(27,14,42,0.6) 78%,
+        var(--deep-plum) 100%);
     }
     .hero-inner {
       position: relative; z-index: 2;
-      width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 44px;
+      width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 40px;
       display: grid; grid-template-columns: 1fr 1fr;
       align-items: center; gap: 40px;
     }
-    /* LOGO en el hero — izquierda */
     .hero-logo-side {
       display: flex; align-items: center; justify-content: center;
-      animation: fadeUp 1s ease both 0.1s;
+      animation: fadeUp 0.9s ease both; animation-delay: 0.1s;
     }
     .hero-logo-side img {
       width: min(340px, 90%); height: auto;
-      filter: drop-shadow(0 0 48px rgba(242,198,176,0.18));
+      filter: drop-shadow(0 0 40px rgba(242,198,176,0.2));
     }
-    /* Headline — derecha */
     .hero-text-side {
       text-align: left;
-      animation: fadeUp 1s ease both 0.3s;
+      animation: fadeUp 0.9s ease both; animation-delay: 0.32s;
     }
     .hero-text-side h1 {
-      font-family: var(--font-body); font-weight: 300;
-      font-size: clamp(1.45rem, 3.5vw, 2.7rem);
+      font-family: var(--font-body); font-weight: 200;
+      font-size: clamp(1.4rem, 3.4vw, 2.6rem);
       line-height: 1.3; color: var(--cream);
-      letter-spacing: 0.07em;
+      letter-spacing: 0.07em; margin-bottom: 4px;
     }
     .hero-text-side h1 em {
       font-family: var(--font-display);
@@ -203,17 +228,17 @@
     }
     .hero-subtitle {
       font-family: var(--font-display);
-      font-size: clamp(1.35rem, 2.8vw, 1.9rem);
+      font-size: clamp(1.4rem, 3vw, 2rem);
       color: var(--text-muted); margin-top: 16px;
     }
 
-    /* ════════════════════════════
+    /* ════════════════════════════════════
        PROBLEMA
-    ════════════════════════════ */
+    ════════════════════════════════════ */
     #problema { background: var(--deep-plum); padding-top: 72px; padding-bottom: 72px; }
     .problema-inner { max-width: 740px; margin: 0 auto; text-align: center; }
     .problema-inner p {
-      font-family: var(--font-body); font-weight: 300;
+      font-family: var(--font-body); font-weight: 200;
       font-size: clamp(0.9rem, 1.7vw, 1.08rem);
       line-height: 2.1; color: var(--peach-light);
     }
@@ -222,91 +247,62 @@
       font-family: var(--font-display) !important;
       font-size: clamp(1.6rem, 3.5vw, 2.4rem) !important;
       color: var(--peach) !important;
-      line-height: 1.4 !important;
-      display: block; margin-bottom: 36px;
+      display: block; margin-bottom: 36px; line-height: 1.2;
     }
 
-    /* ════════════════════════════
-       PORTAFOLIO SLIDER
-    ════════════════════════════ */
+    /* ════════════════════════════════════
+       PORTAFOLIO — 3 col × 5 filas
+    ════════════════════════════════════ */
     #portafolio {
       background: linear-gradient(to bottom, var(--deep-plum) 0%, rgba(45,26,68,0.25) 50%, var(--deep-plum) 100%);
-      padding-left: 0; padding-right: 0;
+      padding-bottom: 0;
     }
-    #portafolio .container { padding: 0 24px; }
-    .slider-wrap {
-      position: relative;
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+    .portfolio-grid .pf-item { overflow: hidden; position: relative; aspect-ratio: 2/3; }
+    .portfolio-grid .pf-item img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
+      display: block;
+      transition: transform 0.6s ease, filter 0.4s ease;
+      filter: brightness(0.84) saturate(0.8);
+    }
+    .portfolio-grid .pf-item:hover img {
+      transform: scale(1.05); filter: brightness(1) saturate(1);
+    }
+
+    /* ════════════════════════════════════
+       TESTIMONIOS — SLIDER
+    ════════════════════════════════════ */
+    #testimonios {
+      background: var(--deep-plum);
+      padding-top: 70px; padding-bottom: 30px;
       overflow: hidden;
+    }
+    .testimonios-track-wrap {
+      overflow: hidden;
+      position: relative;
       width: 100%;
     }
-    /* fade edges */
-    .slider-wrap::before,
-    .slider-wrap::after {
-      content: '';
-      position: absolute; top: 0; bottom: 0; width: 80px;
-      z-index: 2; pointer-events: none;
-    }
-    .slider-wrap::before {
-      left: 0;
-      background: linear-gradient(to right, var(--deep-plum) 0%, transparent 100%);
-    }
-    .slider-wrap::after {
-      right: 0;
-      background: linear-gradient(to left, var(--deep-plum) 0%, transparent 100%);
-    }
-    .slider-track {
+    .testimonios-track {
       display: flex;
-      gap: 10px;
+      gap: 28px;
       width: max-content;
-      /* animation runs via JS for pause-on-hover */
-      animation: slideLeft 55s linear infinite;
+      animation: slideLeft 28s linear infinite;
     }
-    .slider-track.paused { animation-play-state: paused; }
+    .testimonios-track-wrap:hover .testimonios-track { animation-play-state: paused; }
 
     @keyframes slideLeft {
       0%   { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
 
-    .slide-item {
-      flex-shrink: 0;
-      width: 300px; height: 420px;
-      overflow: hidden; position: relative;
-      border-radius: 4px;
-      cursor: zoom-in;
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-    }
-    .slide-item:hover {
-      transform: scale(1.06);
-      box-shadow: 0 16px 60px rgba(0,0,0,0.55);
-      z-index: 3;
-    }
-    .slide-item img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center top;
-      display: block;
-      filter: brightness(0.84) saturate(0.82);
-      transition: filter 0.4s ease;
-    }
-    .slide-item:hover img { filter: brightness(1) saturate(1); }
-
-    /* ════════════════════════════
-       TESTIMONIOS (carrusel)
-    ════════════════════════════ */
-    #testimonios {
-      background: linear-gradient(135deg, rgba(45,26,68,0.32) 0%, var(--deep-plum) 100%);
-    }
-    .testimonios-carousel {
-      position: relative; overflow: hidden;
-    }
-    .testimonios-track {
-      display: flex; gap: 28px;
-      transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
-    }
     .testimonio-card {
-      flex: 0 0 calc(33.333% - 19px);
-      border: 1px solid rgba(242,198,176,0.13); border-radius: 6px;
-      padding: 32px 28px; background: rgba(62,37,88,0.13);
+      width: 340px; flex-shrink: 0;
+      border: 1px solid rgba(242,198,176,0.14); border-radius: 6px;
+      padding: 32px 28px 28px; background: rgba(62,37,88,0.13);
       position: relative;
     }
     .testimonio-card::before {
@@ -315,140 +311,110 @@
       position: absolute; top: -8px; left: 18px; line-height: 1;
     }
     .testimonio-text {
-      font-family: var(--font-body); font-weight: 300; font-style: italic;
+      font-family: var(--font-body); font-weight: 200; font-style: italic;
       font-size: 0.88rem; line-height: 1.82; color: var(--peach-light); margin-bottom: 18px;
     }
     .testimonio-author {
       font-family: var(--font-body); font-weight: 300;
-      font-size: 0.66rem; letter-spacing: 0.12em;
+      font-size: 0.66rem; letter-spacing: 0.13em;
       text-transform: uppercase; color: var(--text-muted);
     }
-    .carousel-dots {
-      display: flex; justify-content: center; gap: 8px; margin-top: 32px;
-    }
-    .carousel-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: rgba(242,198,176,0.25); border: none; cursor: pointer;
-      transition: background 0.3s, transform 0.3s; padding: 0;
-    }
-    .carousel-dot.active { background: var(--peach); transform: scale(1.3); }
-    .testimonios-cta { text-align: center; margin-top: 48px; }
+    .testimonios-cta-wrap { text-align: center; padding: 52px 24px 20px; }
 
-    /* ════════════════════════════
-       CONÓCEME (antes de proceso)
-    ════════════════════════════ */
+    /* ════════════════════════════════════
+       CONÓCEME — background portada, oval huevo
+    ════════════════════════════════════ */
     #conoceme {
-      background: linear-gradient(135deg, rgba(45,26,68,0.4) 0%, var(--deep-plum) 100%);
+      position: relative; overflow: hidden;
     }
-    /* Portada de fondo en conóceme */
     .conoceme-bg {
       position: absolute; inset: 0;
-      background-image: url('https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131047/Fondo_sr79qm.jpg');
+      background-image: url('https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778131047/Fondo_sr79qm.png');
       background-size: cover; background-position: center;
-      filter: brightness(0.08) saturate(0.5);
-      z-index: 0;
+      filter: brightness(0.22) saturate(0.6);
     }
-    #conoceme > .container { position: relative; z-index: 1; }
+    .conoceme-bg-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(27,14,42,0.7) 0%, rgba(45,26,68,0.5) 100%);
+    }
     .conoceme-inner {
+      position: relative; z-index: 2;
       display: grid; grid-template-columns: 260px 1fr;
-      gap: 56px; align-items: center;
+      gap: 64px; align-items: center;
     }
-    .conoceme-photo { position: relative; }
-    /* Óvalo vertical — forma de huevo apenas perceptible */
+    .conoceme-photo {
+      position: relative; display: flex; justify-content: center;
+    }
     .conoceme-photo img {
       width: 100%;
-      border-radius: 50% 50% 46% 46% / 42% 42% 58% 58%;
+      /* Óvalo vertical con forma de huevo: parte superior más redondeada, inferior más estrecha */
+      border-radius: 50% 50% 42% 42% / 58% 58% 42% 42%;
       display: block;
-      filter: brightness(0.9) saturate(0.88);
+      filter: brightness(0.88) saturate(0.85);
       border: 1.5px solid rgba(242,198,176,0.2);
+      object-fit: cover; object-position: center top;
       aspect-ratio: 3/4;
-      object-fit: cover;
-      object-position: center top;
     }
     .conoceme-photo::before {
-      content: ''; position: absolute; inset: -10px;
-      border-radius: 50% 50% 46% 46% / 42% 42% 58% 58%;
-      border: 1px solid rgba(242,198,176,0.1);
+      content: '';
+      position: absolute; inset: -10px;
+      border-radius: 52% 52% 44% 44% / 60% 60% 44% 44%;
+      border: 1px solid rgba(242,198,176,0.09);
+      pointer-events: none;
     }
     .conoceme-text p {
-      font-family: var(--font-body); font-weight: 300;
-      font-size: clamp(0.88rem, 1.5vw, 1.02rem);
+      font-family: var(--font-body); font-weight: 200;
+      font-size: clamp(0.88rem, 1.5vw, 1.03rem);
       line-height: 1.95; color: var(--peach-light); text-align: center;
     }
     .conoceme-quote {
-      display: block; margin-top: 24px;
-      font-family: var(--font-display); font-size: 1.65rem;
+      display: block; margin-top: 28px;
+      font-family: var(--font-display); font-size: 1.75rem;
       color: var(--peach); text-align: center; line-height: 1.35;
     }
     .conoceme-credential {
-      display: inline-block; margin-top: 18px;
-      font-family: var(--font-body); font-weight: 300;
-      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+      display: block; margin-top: 18px;
+      font-family: var(--font-body); font-weight: 200;
+      font-size: 0.68rem; letter-spacing: 0.13em; text-transform: uppercase;
       color: var(--text-muted);
       border-top: 1px solid rgba(242,198,176,0.15); padding-top: 14px;
-      width: 100%; text-align: center;
+      text-align: center;
     }
 
-    /* ════════════════════════════
-       ASÍ TRABAJAMOS — slider infinito
-    ════════════════════════════ */
+    /* ════════════════════════════════════
+       ASÍ TRABAJAMOS — cards responsivas
+    ════════════════════════════════════ */
     #proceso {
-      background: linear-gradient(to bottom, var(--deep-plum), rgba(45,26,68,0.42), var(--deep-plum));
-      padding-left: 0; padding-right: 0;
+      background: linear-gradient(to bottom, var(--deep-plum), rgba(45,26,68,0.4), var(--deep-plum));
     }
-    #proceso > .container { padding: 0 24px; }
-    .proceso-slider-wrap {
-      position: relative; overflow: hidden;
-      margin-top: 0;
+    .proceso-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
     }
-    .proceso-slider-wrap::before,
-    .proceso-slider-wrap::after {
-      content: ''; position: absolute; top: 0; bottom: 0; width: 80px;
-      z-index: 2; pointer-events: none;
-    }
-    .proceso-slider-wrap::before {
-      left: 0;
-      background: linear-gradient(to right, var(--deep-plum) 0%, transparent 100%);
-    }
-    .proceso-slider-wrap::after {
-      right: 0;
-      background: linear-gradient(to left, var(--deep-plum) 0%, transparent 100%);
-    }
-    .proceso-track {
-      display: flex; gap: 24px;
-      width: max-content;
-      animation: slideLeft 38s linear infinite;
-      padding: 20px 0 24px;
-    }
-    .proceso-track.paused { animation-play-state: paused; }
-
     .proceso-step {
-      flex-shrink: 0; width: 280px;
-      text-align: center; padding: 36px 28px;
-      border: 1px solid rgba(242,198,176,0.13); border-radius: 6px;
-      background: rgba(62,37,88,0.15);
-      cursor: pointer;
-      transition: border-color 0.4s, background 0.4s, transform 0.4s, box-shadow 0.4s;
+      text-align: center; padding: 40px 24px;
+      border: 1px solid rgba(242,198,176,0.13); border-radius: 8px;
+      background: rgba(62,37,88,0.14);
+      transition: border-color 0.3s, background 0.3s, transform 0.3s;
     }
     .proceso-step:hover {
-      border-color: rgba(242,198,176,0.4);
-      background: rgba(62,37,88,0.38);
-      transform: scale(1.05);
-      box-shadow: 0 12px 48px rgba(0,0,0,0.4);
+      border-color: rgba(242,198,176,0.38); background: rgba(62,37,88,0.35);
+      transform: translateY(-4px);
     }
     .step-title {
       font-family: var(--font-display);
-      font-size: 2rem; color: var(--peach);
+      font-size: 2.2rem; color: var(--peach);
       margin-bottom: 14px; line-height: 1.1;
     }
     .step-desc {
-      font-family: var(--font-body); font-weight: 300;
-      font-size: 0.85rem; color: var(--text-muted); line-height: 1.84;
+      font-family: var(--font-body); font-weight: 200;
+      font-size: 0.86rem; color: var(--text-muted); line-height: 1.84;
     }
 
-    /* ════════════════════════════
+    /* ════════════════════════════════════
        PIEDRAS PRECIOSAS — FLIP CARDS
-    ════════════════════════════ */
+    ════════════════════════════════════ */
     #paquetes { background: var(--deep-plum); }
     .packages-grid {
       display: grid; grid-template-columns: repeat(3,1fr);
@@ -457,16 +423,16 @@
     .flip-card { height: 520px; perspective: 1200px; cursor: pointer; }
     .flip-card-inner {
       position: relative; width: 100%; height: 100%;
-      transition: transform 0.85s cubic-bezier(0.4,0.2,0.2,1);
+      transition: transform 0.85s cubic-bezier(0.4, 0.2, 0.2, 1);
       transform-style: preserve-3d;
     }
     .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+
     .flip-front, .flip-back {
       position: absolute; inset: 0; border-radius: 8px;
       backface-visibility: hidden; -webkit-backface-visibility: hidden;
       overflow: hidden;
     }
-    /* FRONT */
     .flip-front {
       display: flex; flex-direction: column;
       align-items: center; justify-content: flex-end;
@@ -477,30 +443,27 @@
     .flip-front-img { position: absolute; inset: 0; }
     .flip-front-img img {
       width: 100%; height: 100%;
-      object-fit: cover;
-      /* object-position: show full plant — centered */
-      object-position: center bottom;
+      object-fit: cover; object-position: center bottom; /* muestra base de la planta */
       display: block;
-      transition: transform 0.4s ease;
+      transition: transform 0.45s ease;
     }
-    .flip-card:hover .flip-front-img img { transform: scale(1.03); }
+    .flip-card:hover .flip-front-img img { transform: scale(1.04); }
     .flip-front-img::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 50%;
-      background: linear-gradient(to top, rgba(27,14,42,0.9) 0%, transparent 100%);
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 52%;
+      background: linear-gradient(to top, rgba(27,14,42,0.93) 0%, transparent 100%);
     }
     .card-front-name {
       position: relative; z-index: 2;
       font-family: var(--font-display); font-size: 2.5rem;
       color: var(--peach); text-align: center;
-      text-shadow: 0 2px 20px rgba(27,14,42,0.98);
+      text-shadow: 0 2px 18px rgba(27,14,42,0.95);
     }
-    /* BACK */
     .flip-back {
       background: rgba(45,26,68,0.97);
       border: 1px solid rgba(242,198,176,0.28);
       transform: rotateY(180deg);
       display: flex; flex-direction: column;
-      padding: 36px 28px 30px;
+      padding: 36px 28px 32px;
     }
     .flip-back::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
@@ -508,99 +471,98 @@
     }
     .card-back-name {
       font-family: var(--font-display); font-size: 2.2rem;
-      color: var(--peach); margin-bottom: 24px; text-align: center;
+      color: var(--peach); margin-bottom: 26px; text-align: center;
     }
     .package-features { list-style: none; flex: 1; }
     .package-features li {
-      font-family: var(--font-body); font-weight: 300; font-size: 0.85rem;
+      font-family: var(--font-body); font-weight: 200; font-size: 0.86rem;
       color: var(--peach-light); padding: 7px 0;
-      border-bottom: 1px solid rgba(242,198,176,0.08);
+      border-bottom: 1px solid rgba(242,198,176,0.09);
       display: flex; align-items: center; gap: 10px;
     }
-    .package-features li::before { content: '◆'; color: var(--peach-dark); font-size: 0.43rem; flex-shrink: 0; }
+    .package-features li::before { content: '◆'; color: var(--peach-dark); font-size: 0.44rem; flex-shrink: 0; }
 
-    /* CIERRE PAQUETES */
+    /* Bloque de cierre paquetes */
     .paquetes-closing {
-      margin-top: 70px; text-align: center;
+      margin-top: 72px; text-align: center;
       max-width: 660px; margin-left: auto; margin-right: auto;
     }
     .paquetes-closing-title {
       font-family: var(--font-display);
       font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      color: var(--peach); margin-bottom: 20px; line-height: 1.15;
+      color: var(--peach); margin-bottom: 22px; line-height: 1.15;
     }
     .paquetes-closing p {
-      font-family: var(--font-body); font-weight: 300;
-      font-size: clamp(0.86rem, 1.55vw, 0.98rem);
-      line-height: 2; color: var(--peach-light);
-      margin-bottom: 40px;
+      font-family: var(--font-body); font-weight: 200;
+      font-size: clamp(0.87rem, 1.55vw, 1rem);
+      line-height: 1.96; color: var(--peach-light);
+      margin-bottom: 42px;
     }
 
-    /* ════════════════════════════
-       FOOTER — fondo #F2C6B0
-    ════════════════════════════ */
+    /* ════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════ */
     footer { position: relative; overflow: hidden; }
     .footer-strip {
-      height: 2px;
-      background: linear-gradient(to right, transparent, var(--peach), transparent);
+      height: 3px;
+      background: linear-gradient(to right, transparent 0%, var(--peach) 20%, var(--peach) 80%, transparent 100%);
     }
     .footer-body {
       background: var(--peach);
       padding: 30px 24px 26px;
-      display: flex; flex-direction: column;
-      align-items: center; gap: 14px;
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
     }
     .footer-title {
       font-family: var(--font-display); font-size: 2.8rem;
       color: var(--deep-plum); line-height: 1;
     }
-    .footer-socials { display: flex; gap: 24px; align-items: center; }
+    .footer-socials { display: flex; gap: 28px; align-items: center; }
     .footer-socials a {
-      color: var(--deep-plum); opacity: 0.6;
-      text-decoration: none; display: flex; align-items: center;
-      transition: opacity 0.3s;
+      color: var(--deep-plum); text-decoration: none; opacity: 0.6;
+      transition: opacity 0.3s; display: flex; align-items: center;
     }
     .footer-socials a:hover { opacity: 1; }
     .footer-legal {
-      font-family: var(--font-body); font-size: 0.65rem;
-      color: rgba(27,14,42,0.4); letter-spacing: 0.05em;
+      font-family: var(--font-body); font-weight: 200; font-size: 0.64rem;
+      color: rgba(27,14,42,0.4); letter-spacing: 0.06em;
     }
 
-    /* ════════════════════════════
+    /* ════════════════════════════════════
        ANIMATIONS
-    ════════════════════════════ */
+    ════════════════════════════════════ */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
+      from { opacity: 0; transform: translateY(26px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ════════════════════════════
+    /* ════════════════════════════════════
        MOBILE
-    ════════════════════════════ */
+    ════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .packages-grid { grid-template-columns: 1fr; gap: 60px; max-width: 400px; margin: 0 auto; }
+    }
     @media (max-width: 768px) {
       nav { padding: 12px 18px; }
       .nav-links { display: none; }
-      #hero { padding: 86px 0 48px; }
-      .hero-inner { grid-template-columns: 1fr; padding: 0 20px; gap: 20px; text-align: center; }
+      #hero { padding: 88px 0 50px; }
+      .hero-inner { grid-template-columns: 1fr; padding: 0 20px; text-align: center; gap: 22px; }
       .hero-text-side { text-align: center; }
-      .hero-logo-side img { width: min(200px, 70%); }
+      .hero-logo-side img { width: min(200px, 66%); }
       section { padding: 56px 18px; }
-      .slide-item { width: 220px; height: 310px; }
-      .testimonio-card { flex: 0 0 calc(100% - 0px); }
-      .packages-grid { grid-template-columns: 1fr; gap: 54px; }
-      .flip-card { height: 480px; }
-      .conoceme-inner { grid-template-columns: 1fr; gap: 28px; }
+      .portfolio-grid { grid-template-columns: repeat(3, 1fr); gap: 3px; }
+      .conoceme-inner { grid-template-columns: 1fr; gap: 32px; }
       .conoceme-photo { max-width: 180px; margin: 0 auto; }
-      .proceso-step { width: 240px; }
+      .proceso-grid { grid-template-columns: 1fr; gap: 16px; }
+      .testimonio-card { width: 280px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ══════════ NAV ══════════ -->
+<!-- ════════════ NAV ════════════ -->
 <nav>
   <a href="#hero" class="nav-logo">
-    <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1777600839/Logo_hmxoos.png" alt="Diario Boudoir" />
+    <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1777600836/Logo_tfmqxk.png" alt="Diario Boudoir" />
   </a>
   <ul class="nav-links">
     <li><a href="#portafolio">Portafolio</a></li>
@@ -611,18 +573,14 @@
   </ul>
 </nav>
 
-<!-- ══════════ HERO ══════════ -->
+<!-- ════════════ HERO ════════════ -->
 <section id="hero">
-  <!-- Portada de fondo -->
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-inner">
-    <!-- LOGO — lado izquierdo (no el favicon, el logo completo) -->
     <div class="hero-logo-side">
-      <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1777600839/Logo_hmxoos.png"
-           alt="Diario Boudoir" />
+      <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1777600836/Logo_tfmqxk.png" alt="Diario Boudoir" />
     </div>
-    <!-- Headline — lado derecho -->
     <div class="hero-text-side">
       <h1>
         No viniste a encajar,
@@ -633,7 +591,7 @@
   </div>
 </section>
 
-<!-- ══════════ PROBLEMA ══════════ -->
+<!-- ════════════ PROBLEMA ════════════ -->
 <section id="problema">
   <div class="container">
     <div class="problema-inner">
@@ -650,108 +608,144 @@
         Y cuando ven sus resultados… se asombran. Se emocionan.<br />
         Se reconcilian consigo mismas.
       </p>
-      <!-- "Eso es lo que quiero para ti." → tipografía Allura (1er cambio) -->
+      <!-- Allura + botón -->
       <span class="problema-allura">Eso es lo que quiero para ti.</span>
       <a href="https://api.whatsapp.com/send?phone=+525519129866&text=Hola%20Daniela%2C%20acabo%20de%20ver%20tu%20p%C3%A1gina%20y%20estoy%20decidida%20a%20hacerme%20mi%20sesi%C3%B3n%F0%9F%94%A5%0A%C2%BFCu%C3%A1les%20son%20los%20m%C3%A9todos%20de%20pago%3F"
-         class="cta-btn" target="_blank" rel="noopener">
-        Agenda tu llamada
+         class="cta-outline" target="_blank" rel="noopener">
+        ¡Quiero reservar!
       </a>
-      <div class="divider" style="margin-top:48px; margin-bottom:0;"></div>
+      <div class="divider" style="margin-top:52px; margin-bottom:0;"></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ PORTAFOLIO — slider infinito ══════════ -->
+<!-- ════════════ PORTAFOLIO ════════════ -->
 <section id="portafolio">
   <div class="container">
     <h2 class="section-title">Portafolio</h2>
-  </div>
-  <div class="slider-wrap" id="portfolioSlider">
-    <div class="slider-track" id="portfolioTrack">
-      <!--
-        ╔═══════════════════════════════════════════════════════════════╗
-        ║  15 FOTOS DE PORTAFOLIO                                       ║
-        ║  5 URLs confirmadas · 10 con ID parcial                       ║
-        ║  Para las 10 incompletas: busca en tu Cloudinary Media Library║
-        ║  el nombre completo del archivo que termina en el ID indicado ║
-        ║  y sustituye la URL marcada con ✏️                            ║
-        ╚═══════════════════════════════════════════════════════════════╝
-      -->
-      <!-- 1 ✅ CONFIRMADA -->
-      <div class="slide-item"><img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131047/Pia-6396_oo3jgu.jpg" alt="Pía" loading="lazy" /></div>
-      <!-- 2 ✏️ ID: chm6fp — reemplaza con tu URL completa -->
-      <div class="slide-item"><img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131051/NOMBRE_chm6fp.jpg" alt="Sesión 2" loading="lazy" /></div>
-      <!-- 3 ✏️ ID: awcut — reemplaza con tu URL completa -->
-      <div class="slide-item"><img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131042/NOMBRE_awcut.jpg" alt="Sesión 3" loading="lazy" /></div>
-      <!-- 4 ✅ CONFIRMADA -->
-      <div class="slide-item"><img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131040/ChioMD_redes-1373_inabje.jpg" alt="ChioMD" loading="lazy" /></div>
-      <!-- 5 ✏️ ID: z89pss — reemplaza con tu URL completa -->
-      <div class="slide-item"><img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131047/NOMBRE_z89pss.jpg" alt="Sesión 5" loading="lazy" /></div>
-      <!-- 6 ✏️ ID: a8etd6 — reemplaza con tu URL completa -->
-      <div class="slide-item"><img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131037/NOMBRE_a8etd6.jpg" alt="Sesión 6" loading="lazy" /></div>
-      <!-- 7 ✅ CONFIRMADA -->
-      <div class="slide-item"><img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131041/Viry_Mu%C3%B1oz-6_rxuzmh.jpg" alt="Viry Muñoz" loading="lazy" /></div>
-      <!-- 8 ✏️ ID: ggokjg — reemplaza con tu URL completa -->
-      <div class="slide-item"><img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131006/NOMBRE_ggokjg.jpg" alt="Sesión 8" loading="lazy" /></div>
-      <!-- 9 ✏️ ID: fjfpwn — reemplaza con tu URL completa -->
-      <div class="slide-item"><img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131006/NOMBRE_fjfpwn.jpg" alt="Sesión 9" loading="lazy" /></div>
-      <!-- 10 ✅ CONFIRMADA -->
-      <div class="slide-item"><img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131038/Miranda_h7yqn8.jpg" alt="Miranda" loading="lazy" /></div>
-      <!-- 11 ✏️ ID: gv6eiv — reemplaza con tu URL completa -->
-      <div class="slide-item"><img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131045/NOMBRE_gv6eiv.jpg" alt="Sesión 11" loading="lazy" /></div>
-      <!-- 12 ✏️ ID: dj7uh — reemplaza con tu URL completa -->
-      <div class="slide-item"><img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131048/NOMBRE_dj7uh.jpg" alt="Sesión 12" loading="lazy" /></div>
-      <!-- 13 ✅ CONFIRMADA -->
-      <div class="slide-item"><img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131041/Almita_m-5037_wslhr.jpg" alt="Almita" loading="lazy" /></div>
-      <!-- 14 ✏️ ID: hvwxnk — reemplaza con tu URL completa -->
-      <div class="slide-item"><img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131082/NOMBRE_hvwxnk.jpg" alt="Sesión 14" loading="lazy" /></div>
-      <!-- 15 ✏️ ID: k1j5pw — reemplaza con tu URL completa -->
-      <div class="slide-item"><img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131020/NOMBRE_k1j5pw.jpg" alt="Sesión 15" loading="lazy" /></div>
-      <!-- Clones para loop infinito (JS los genera, o duplicamos aquí) -->
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ TESTIMONIOS ══════════ -->
-<section id="testimonios">
-  <div class="container">
-    <h2 class="section-title center">Lo que ellas dicen</h2>
-    <div class="testimonios-carousel">
-      <div class="testimonios-track" id="testimoniosTrack">
-        <div class="testimonio-card">
-          <p class="testimonio-text">Llegué con mil miedos y salí sintiéndome la mujer más hermosa del mundo. Daniela tiene una energía que te hace sentir segura desde el primer minuto.</p>
-          <span class="testimonio-author">— Paola R.</span>
-        </div>
-        <div class="testimonio-card">
-          <p class="testimonio-text">Nunca pensé que me vería así. Las fotos me hicieron llorar de emoción — esa soy yo, y no lo recordaba. Gracias por devolverme esa imagen.</p>
-          <span class="testimonio-author">— Almita G.</span>
-        </div>
-        <div class="testimonio-card">
-          <p class="testimonio-text">La asesoría de vestuario y la guía de poses fueron todo. Me sentí dirigida, cómoda y libre al mismo tiempo. Absolutamente lo recomiendo.</p>
-          <span class="testimonio-author">— Viridiana M.</span>
-        </div>
+    <div class="portfolio-grid">
+      <!-- Fila 1: Miranda -->
+      <div class="pf-item">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778293983/1BoudoirMiranda_ldppma.jpg" alt="Miranda — sesión boudoir 1" loading="lazy" />
+      </div>
+      <div class="pf-item">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778293984/2BoudoirMiranda_q8lytc.jpg" alt="Miranda — sesión boudoir 2" loading="lazy" />
+      </div>
+      <div class="pf-item">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778294640/3BoudoirMiranda_wme09m.jpg" alt="Miranda — sesión boudoir 3" loading="lazy" />
+      </div>
+      <!-- Fila 2: Viry -->
+      <div class="pf-item">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778294005/10BoudoirViry_tmpkhj.jpg" alt="Viry — sesión boudoir 1" loading="lazy" />
+      </div>
+      <div class="pf-item">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778294007/11BoudoirViry_xfeal1.jpg" alt="Viry — sesión boudoir 2" loading="lazy" />
+      </div>
+      <div class="pf-item">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778294017/12BoudoirViry_k9e9b1.jpg" alt="Viry — sesión boudoir 3" loading="lazy" />
+      </div>
+      <!-- Fila 3: Pía -->
+      <div class="pf-item">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778294018/13Boudoirpia_pi4kff.jpg" alt="Pía — sesión boudoir 1" loading="lazy" />
+      </div>
+      <div class="pf-item">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778294026/14Boudoirpia_zpstej.jpg" alt="Pía — sesión boudoir 2" loading="lazy" />
+      </div>
+      <div class="pf-item">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778294027/15Boudoirpia_fuehku.jpg" alt="Pía — sesión boudoir 3" loading="lazy" />
+      </div>
+      <!-- Fila 4: Almita -->
+      <div class="pf-item">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778293992/7BoudoirAlm_lzexw8.jpg" alt="Almita — sesión boudoir 1" loading="lazy" />
+      </div>
+      <div class="pf-item">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778293996/8BoudoirAlm_zjur54.jpg" alt="Almita — sesión boudoir 2" loading="lazy" />
+      </div>
+      <div class="pf-item">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778293998/9BoudoirAlm.jpg_ffkbex.jpg" alt="Almita — sesión boudoir 3" loading="lazy" />
+      </div>
+      <!-- Fila 5: Chio -->
+      <div class="pf-item">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778293987/4BoudoirChio_sdpokj.jpg" alt="Chio — sesión boudoir 1" loading="lazy" />
+      </div>
+      <div class="pf-item">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778293988/5BoudoirChio_jy36sp.jpg" alt="Chio — sesión boudoir 2" loading="lazy" />
+      </div>
+      <div class="pf-item">
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778293991/6BoudoirChio_guxs18.jpg" alt="Chio — sesión boudoir 3" loading="lazy" />
       </div>
     </div>
-    <div class="carousel-dots" id="carouselDots"></div>
-    <div class="testimonios-cta">
-      <a href="https://api.whatsapp.com/send?phone=+525519129866&text=Hola%20Daniela%2C%20acabo%20de%20ver%20tu%20p%C3%A1gina%20y%20estoy%20decidida%20a%20hacerme%20mi%20sesi%C3%B3n%F0%9F%94%A5%0A%C2%BFCu%C3%A1les%20son%20los%20m%C3%A9todos%20de%20pago%3F"
-         class="cta-btn" target="_blank" rel="noopener">
-        ¡Sí, quiero vivirlo!
-      </a>
-    </div>
   </div>
 </section>
 
-<!-- ══════════ CONÓCEME ══════════ -->
+<!-- ════════════ TESTIMONIOS — SLIDER ════════════ -->
+<section id="testimonios">
+  <div class="container" style="margin-bottom:44px;">
+    <h2 class="section-title">Lo que ellas dicen</h2>
+  </div>
+  <div class="testimonios-track-wrap">
+    <div class="testimonios-track">
+      <!-- Set 1 -->
+      <div class="testimonio-card">
+        <p class="testimonio-text">Llegué con mil miedos y salí sintiéndome la mujer más hermosa del mundo. Daniela tiene una energía que te hace sentir segura desde el primer minuto.</p>
+        <span class="testimonio-author">— Paola R.</span>
+      </div>
+      <div class="testimonio-card">
+        <p class="testimonio-text">Nunca pensé que me vería así. Las fotos me hicieron llorar de emoción — esa soy yo, y no lo recordaba. Gracias por devolverme esa imagen.</p>
+        <span class="testimonio-author">— Almita G.</span>
+      </div>
+      <div class="testimonio-card">
+        <p class="testimonio-text">La asesoría de vestuario y la guía de poses fueron todo. Me sentí dirigida, cómoda y libre al mismo tiempo. Absolutamente lo recomiendo.</p>
+        <span class="testimonio-author">— Viridiana M.</span>
+      </div>
+      <div class="testimonio-card">
+        <p class="testimonio-text">Nunca había posado antes y Daniela me hizo sentir tan natural. Las fotos capturaron algo de mí que yo no sabía que existía.</p>
+        <span class="testimonio-author">— Miranda T.</span>
+      </div>
+      <div class="testimonio-card">
+        <p class="testimonio-text">Pensé que no era para mí, pero desde la primera videollamada supe que estaba en buenas manos. Una experiencia que recomendaría a cada mujer.</p>
+        <span class="testimonio-author">— Chio B.</span>
+      </div>
+      <!-- Set 2 — copia para loop infinito -->
+      <div class="testimonio-card">
+        <p class="testimonio-text">Llegué con mil miedos y salí sintiéndome la mujer más hermosa del mundo. Daniela tiene una energía que te hace sentir segura desde el primer minuto.</p>
+        <span class="testimonio-author">— Paola R.</span>
+      </div>
+      <div class="testimonio-card">
+        <p class="testimonio-text">Nunca pensé que me vería así. Las fotos me hicieron llorar de emoción — esa soy yo, y no lo recordaba. Gracias por devolverme esa imagen.</p>
+        <span class="testimonio-author">— Almita G.</span>
+      </div>
+      <div class="testimonio-card">
+        <p class="testimonio-text">La asesoría de vestuario y la guía de poses fueron todo. Me sentí dirigida, cómoda y libre al mismo tiempo. Absolutamente lo recomiendo.</p>
+        <span class="testimonio-author">— Viridiana M.</span>
+      </div>
+      <div class="testimonio-card">
+        <p class="testimonio-text">Nunca había posado antes y Daniela me hizo sentir tan natural. Las fotos capturaron algo de mí que yo no sabía que existía.</p>
+        <span class="testimonio-author">— Miranda T.</span>
+      </div>
+      <div class="testimonio-card">
+        <p class="testimonio-text">Pensé que no era para mí, pero desde la primera videollamada supe que estaba en buenas manos. Una experiencia que recomendaría a cada mujer.</p>
+        <span class="testimonio-author">— Chio B.</span>
+      </div>
+    </div>
+  </div>
+  <div class="testimonios-cta-wrap">
+    <a href="https://api.whatsapp.com/send?phone=+525519129866&text=Hola%20Daniela%2C%20acabo%20de%20ver%20tu%20p%C3%A1gina%20y%20estoy%20decidida%20a%20hacerme%20mi%20sesi%C3%B3n%F0%9F%94%A5%0A%C2%BFCu%C3%A1les%20son%20los%20m%C3%A9todos%20de%20pago%3F"
+       class="cta-outline" target="_blank" rel="noopener">
+      ¡Sí, quiero vivirlo!
+    </a>
+  </div>
+</section>
+
+<!-- ════════════ CONÓCEME ════════════ -->
 <section id="conoceme">
-  <!-- Repetición del fondo de portada en esta sección -->
   <div class="conoceme-bg"></div>
+  <div class="conoceme-bg-overlay"></div>
   <div class="container">
-    <h2 class="section-title">Conóceme</h2>
+    <h2 class="section-title" style="color:#F2C6B0;opacity:1;position:relative;z-index:2;">Conóceme</h2>
     <div class="conoceme-inner">
       <div class="conoceme-photo">
-        <!-- Foto de perfil profesional -->
-        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1747131046/Eldi%CC%81aque_nk3zetn.jpg"
+        <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1777600836/Eldi%CC%81aque_nk3zet.jpg"
              alt="Daniela — Diario Boudoir" loading="lazy" />
       </div>
       <div class="conoceme-text">
@@ -773,39 +767,11 @@
   </div>
 </section>
 
-<!-- ══════════ ASÍ TRABAJAMOS — slider infinito ══════════ -->
+<!-- ════════════ ASÍ TRABAJAMOS ════════════ -->
 <section id="proceso">
   <div class="container">
     <h2 class="section-title">Así trabajamos</h2>
-  </div>
-  <div class="proceso-slider-wrap" id="procesoSlider">
-    <div class="proceso-track" id="procesoTrack">
-      <!-- Los 3 pasos × 4 copias para loop sin saltos -->
-      <div class="proceso-step">
-        <div class="step-title">Videollamada</div>
-        <p class="step-desc">Nos conocemos, platicamos de tu historia, tus miedos y lo que quieres sentir. Coordinamos fecha y estilo.</p>
-      </div>
-      <div class="proceso-step">
-        <div class="step-title">Tu experiencia</div>
-        <p class="step-desc">El momento perfecto no llega, lo haremos juntas. Aunque nunca hayas posado antes, te guiaré para que descubras otra arista de esa belleza que no has mirado.</p>
-      </div>
-      <div class="proceso-step">
-        <div class="step-title">Tu historia, tus fotos</div>
-        <p class="step-desc">Después de vivir tu experiencia, esperas los resultados y transforma tus recuerdos preferidos en piezas que puedas tocar.</p>
-      </div>
-      <!-- Copias para loop -->
-      <div class="proceso-step">
-        <div class="step-title">Videollamada</div>
-        <p class="step-desc">Nos conocemos, platicamos de tu historia, tus miedos y lo que quieres sentir. Coordinamos fecha y estilo.</p>
-      </div>
-      <div class="proceso-step">
-        <div class="step-title">Tu experiencia</div>
-        <p class="step-desc">El momento perfecto no llega, lo haremos juntas. Aunque nunca hayas posado antes, te guiaré para que descubras otra arista de esa belleza que no has mirado.</p>
-      </div>
-      <div class="proceso-step">
-        <div class="step-title">Tu historia, tus fotos</div>
-        <p class="step-desc">Después de vivir tu experiencia, esperas los resultados y transforma tus recuerdos preferidos en piezas que puedas tocar.</p>
-      </div>
+    <div class="proceso-grid">
       <div class="proceso-step">
         <div class="step-title">Videollamada</div>
         <p class="step-desc">Nos conocemos, platicamos de tu historia, tus miedos y lo que quieres sentir. Coordinamos fecha y estilo.</p>
@@ -822,18 +788,25 @@
   </div>
 </section>
 
-<!-- ══════════ PIEDRAS PRECIOSAS ══════════ -->
+<!-- Botón "Agenda tu llamada" debajo de Así trabajamos -->
+<div class="section-cta-block">
+  <a href="https://api.whatsapp.com/send?phone=+525519129866&text=Hola%20Daniela%2C%20acabo%20de%20ver%20tu%20p%C3%A1gina%20y%20estoy%20decidida%20a%20hacerme%20mi%20sesi%C3%B3n%F0%9F%94%A5%0A%C2%BFCu%C3%A1les%20son%20los%20m%C3%A9todos%20de%20pago%3F"
+     class="cta-outline" target="_blank" rel="noopener">
+    Agenda tu llamada
+  </a>
+</div>
 <section id="paquetes">
   <div class="container">
     <h2 class="section-title">Piedras preciosas</h2>
     <div class="packages-grid">
 
-      <!-- ÓPALO -->
+      <!-- ÓPALO DE FUEGO -->
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-front">
             <div class="flip-front-img">
-              <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778215514/opalo3_ivjdai.png" alt="Ópalo de fuego" loading="lazy" />
+              <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778215514/opalo3_ivjdai.png"
+                   alt="Ópalo de fuego" loading="lazy" />
             </div>
             <div class="card-front-name">Ópalo de fuego</div>
           </div>
@@ -850,12 +823,13 @@
         </div>
       </div>
 
-      <!-- JADE (imagen corregida: jade3_m1wae8) -->
+      <!-- JADE -->
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-front">
             <div class="flip-front-img">
-              <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778215506/jade3_m1wae8.png" alt="Jade" loading="lazy" />
+              <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778215506/jade3_m1wae8.png"
+                   alt="Jade" loading="lazy" />
             </div>
             <div class="card-front-name">Jade</div>
           </div>
@@ -873,12 +847,13 @@
         </div>
       </div>
 
-      <!-- TURQUESA (imagen corregida: Turquesa3_bbm6ge) -->
+      <!-- TURQUESA -->
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-front">
             <div class="flip-front-img">
-              <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778215510/Turquesa3_bbm6ge.png" alt="Turquesa" loading="lazy" />
+              <img src="https://res.cloudinary.com/dkqyqeo5c/image/upload/v1778215510/Turquesa3_bbm6ge.png"
+                   alt="Turquesa" loading="lazy" />
             </div>
             <div class="card-front-name">Turquesa</div>
           </div>
@@ -899,35 +874,39 @@
 
     </div>
 
-    <!-- CIERRE + CTA -->
+    <!-- Cierre -->
     <div class="paquetes-closing" id="reserva">
       <div class="paquetes-closing-title">Un paso más ligero hacia amarte</div>
       <p>
         En esta sesión no solo te fotografío. Te ayudo a verte.<br />
         A estar presente en tu propia historia.
       </p>
-      <a href="https://api.whatsapp.com/send?phone=+525519129866&text=Hola%20Daniela%2C%20acabo%20de%20ver%20tu%20p%C3%A1gina%20y%20estoy%20decidida%20a%20hacerme%20mi%20sesi%C3%B3n%F0%9F%94%A5%0A%C2%BFCu%C3%A1les%20son%20los%20m%C3%A9todos%20de%20pago%3F"
-         class="cta-btn" target="_blank" rel="noopener">
-        ¡Quiero reservar!
-      </a>
     </div>
-
   </div>
 </section>
 
-<!-- ══════════ FOOTER ══════════ -->
+<!-- ════════════ CTA ¡Estoy lista! ════════════ -->
+<div class="section-cta-block" style="padding-bottom:80px;">
+  <a href="https://api.whatsapp.com/send?phone=+525519129866&text=Hola%20Daniela%2C%20acabo%20de%20ver%20tu%20p%C3%A1gina%20y%20estoy%20decidida%20a%20hacerme%20mi%20sesi%C3%B3n%F0%9F%94%A5%0A%C2%BFCu%C3%A1les%20son%20los%20m%C3%A9todos%20de%20pago%3F"
+     class="cta-outline" target="_blank" rel="noopener">
+    ¡Estoy lista!
+  </a>
+</div>
+
+<!-- ════════════ FOOTER ════════════ -->
 <footer>
   <div class="footer-strip"></div>
   <div class="footer-body">
     <div class="footer-title">Reserva</div>
     <div class="footer-socials">
       <a href="https://www.instagram.com/diarioboudoir/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
         </svg>
       </a>
-      <a href="https://api.whatsapp.com/send?phone=+525519129866&text=Hola%20Daniela%2C%20acabo%20de%20ver%20tu%20p%C3%A1gina%20y%20estoy%20decidida%20a%20hacerme%20mi%20sesi%C3%B3n%F0%9F%94%A5%0A%C2%BFCu%C3%A1les%20son%20los%20m%C3%A9todos%20de%20pago%3F" target="_blank" rel="noopener" aria-label="WhatsApp">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+      <a href="https://api.whatsapp.com/send?phone=+525519129866&text=Hola%20Daniela%2C%20acabo%20de%20ver%20tu%20p%C3%A1gina%20y%20estoy%20decidida%20a%20hacerme%20mi%20sesi%C3%B3n%F0%9F%94%A5%0A%C2%BFCu%C3%A1les%20son%20los%20m%C3%A9todos%20de%20pago%3F"
+         target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
         </svg>
       </a>
@@ -935,90 +914,6 @@
     <p class="footer-legal">© 2025 Diario Boudoir · Todos los derechos reservados · Aviso de privacidad</p>
   </div>
 </footer>
-
-<script>
-  /* ══════════════════════════════════════════════
-     PORTAFOLIO SLIDER — pause on hover/touch
-  ══════════════════════════════════════════════ */
-  (function() {
-    const track = document.getElementById('portfolioTrack');
-    const wrap  = document.getElementById('portfolioSlider');
-    if (!track || !wrap) return;
-
-    // Clone children for seamless loop
-    const items = [...track.children];
-    items.forEach(item => track.appendChild(item.cloneNode(true)));
-
-    // Pause on hover
-    wrap.addEventListener('mouseenter', () => track.classList.add('paused'));
-    wrap.addEventListener('mouseleave', () => track.classList.remove('paused'));
-    // Pause on touch (mobile)
-    wrap.addEventListener('touchstart', () => track.classList.add('paused'),   { passive: true });
-    wrap.addEventListener('touchend',   () => track.classList.remove('paused'), { passive: true });
-  })();
-
-  /* ══════════════════════════════════════════════
-     PROCESO SLIDER — pause on hover/touch
-  ══════════════════════════════════════════════ */
-  (function() {
-    const track = document.getElementById('procesoTrack');
-    const wrap  = document.getElementById('procesoSlider');
-    if (!track || !wrap) return;
-
-    wrap.addEventListener('mouseenter', () => track.classList.add('paused'));
-    wrap.addEventListener('mouseleave', () => track.classList.remove('paused'));
-    wrap.addEventListener('touchstart', () => track.classList.add('paused'),   { passive: true });
-    wrap.addEventListener('touchend',   () => track.classList.remove('paused'), { passive: true });
-  })();
-
-  /* ══════════════════════════════════════════════
-     TESTIMONIOS CAROUSEL — drag / dots
-  ══════════════════════════════════════════════ */
-  (function() {
-    const track     = document.getElementById('testimoniosTrack');
-    const dotsWrap  = document.getElementById('carouselDots');
-    if (!track || !dotsWrap) return;
-
-    const cards     = [...track.children];
-    const total     = cards.length;
-    let   current   = 0;
-
-    function getVisible() {
-      return window.innerWidth <= 768 ? 1 : 3;
-    }
-    function maxIndex() {
-      return Math.max(0, total - getVisible());
-    }
-
-    // Build dots
-    const dots = [];
-    for (let i = 0; i <= maxIndex(); i++) {
-      const d = document.createElement('button');
-      d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-      d.addEventListener('click', () => goTo(i));
-      dotsWrap.appendChild(d);
-      dots.push(d);
-    }
-
-    function goTo(idx) {
-      current = Math.max(0, Math.min(idx, maxIndex()));
-      const cardW  = cards[0].offsetWidth;
-      const gapPx  = 28;
-      track.style.transform = `translateX(-${current * (cardW + gapPx)}px)`;
-      dots.forEach((d, i) => d.classList.toggle('active', i === current));
-    }
-
-    window.addEventListener('resize', () => goTo(Math.min(current, maxIndex())));
-
-    // Swipe support
-    let startX = 0;
-    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-    track.addEventListener('touchend',   e => {
-      const diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
-    });
-  })();
-</script>
 
 <!-- Schema.org -->
 <script type="application/ld+json">
@@ -1029,7 +924,7 @@
   "description": "Fotografía boudoir y retratos femeninos en Ciudad de México",
   "url": "https://diarioboudoir.com",
   "telephone": "+525519129866",
-  "image": "https://res.cloudinary.com/dkqyqeo5c/image/upload/v1777600839/Logo_hmxoos.png",
+  "image": "https://res.cloudinary.com/dkqyqeo5c/image/upload/v1777600836/Logo_tfmqxk.png",
   "sameAs": ["https://www.instagram.com/diarioboudoir/"]
 }
 </script>
